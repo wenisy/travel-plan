@@ -379,7 +379,7 @@ const duanwu2024Plans: TravelPlan[] = [
 export const allTravelPlanSets: TravelPlanSet[] = [
   {
     id: 'duanwu-2025-guangxi-zhuhai', // 更新年份
-    name: '2025 广西/珠海 端午备选方案', // 更新年份
+    name: '2025 广西/珠海 端午旅行方案', // 更新年份
     description: '围绕2025年端午节假期，规划的广西（北海、桂林）或珠海长隆的旅行方案对比。', // 更新年份
     plans: duanwu2024Plans, // 计划数组名称保持不变，但内容是针对2025的
     holidayDates: ['2025-05-30', '2025-05-31', '2025-06-01'] // 假设2025端午假期日期，请根据实际情况调整
