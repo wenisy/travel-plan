@@ -3,12 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "preinstall": "./scripts/ensure-node.sh",
-    "dev": "./scripts/ensure-node.sh && next dev",
-    "build": "./scripts/ensure-node.sh && next build",
-    "start": "./scripts/ensure-node.sh && next start",
-    "lint": "./scripts/ensure-node.sh && next lint",
-    "export": "./scripts/ensure-node.sh && next export"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "export": "next export"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
