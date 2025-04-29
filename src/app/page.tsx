@@ -29,15 +29,13 @@ export default function Home() {
                   <TimelineConnector />
                 </TimelineSeparator>
                 <TimelineContent>
-                  <h2 className="text-2xl font-semibold text-blue-600">{planSet.name}</h2>
+                  <Link href={`/plans/${planSet.id}`}>
+                    <h2 className="text-2xl font-semibold text-blue-600 cursor-pointer">{planSet.name}</h2>
+                  </Link>
                   {planSet.description && (
                     <p className="text-gray-600">{planSet.description}</p>
                   )}
-                  <Link href={`/plans/${planSet.id}`} legacyBehavior>
-                    <a className="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-                      查看详情
-                    </a>
-                  </Link>
+                  {/* Button removed as per user request */}
                 </TimelineContent>
               </TimelineItem>
             ))
