@@ -1,5 +1,5 @@
 import React from 'react';
-import { holidayDates } from '../data/travelData';
+import { allTravelPlanSets } from '../data/travelData';  // 替换为正确导出
 
 interface CalendarProps {
   startDate: string; // YYYY-MM-DD
@@ -25,8 +25,10 @@ const TravelCalendar: React.FC<CalendarProps> = ({ startDate, endDate }) => {
   
   // 检查日期是否为假期
   const isHoliday = (date: Date) => {
+    console.log('Holiday dates:', allTravelPlanSets[0]?.holidayDates);  // 添加日志以验证
     const dateString = date.toISOString().split('T')[0];
-    return holidayDates.includes(dateString);
+    const holidayDatesArray = allTravelPlanSets[0]?.holidayDates || [];  // 使用正确路径
+    return holidayDatesArray.includes(dateString);
   };
   
   // 检查日期是否为周末
