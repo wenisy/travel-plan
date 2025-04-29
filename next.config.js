@@ -2,9 +2,8 @@
 const nextConfig = {
   reactStrictMode: true,
   output: 'export',
-  images: {
-    unoptimized: true,
-  },
-}
+  basePath: '/travel-plan',
+  assetPrefix: '/travel-plan/',
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

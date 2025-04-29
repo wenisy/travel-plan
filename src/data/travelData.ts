@@ -230,6 +230,26 @@ export const roundTripFlightOptions: RoundTripFlightOption[] = [
       hasCheckedBaggage: true
     },
     totalPrice: 1477 // 含托运行李的往返总价
+  },
+  {
+    id: 'rt8',
+    outbound: {
+      departure: '西安',
+      arrival: '桂林',
+      departureTime: '07:30',
+      arrivalTime: '10:00',
+      date: '2025-06-20',
+      hasCheckedBaggage: true
+    },
+    return: {
+      departure: '北海',
+      arrival: '西安',
+      departureTime: '16:00',
+      arrivalTime: '18:25',
+      date: '2025-06-24',
+      hasCheckedBaggage: true
+    },
+    totalPrice: 1800 // 往返总价
   }
 ];
 
@@ -275,29 +295,16 @@ export const hotelOptions: HotelOption[] = [
 // 旅行计划
 export const travelPlans: TravelPlan[] = [
   {
-    id: 'plan7',
-    name: '方案七: 西安-珠海-北海-西安 (5.28-6.2)',
-    flights: roundTripFlightOptions[0], // 使用新添加的rt7，索引应该是0因为我们在数组开头添加了新选项
-    train: trainOptions[3], // 珠海到北海
-    hotels: [
-      hotelOptions[3], // 珠海过夜1晚
-      hotelOptions[4], // 珠海长隆1晚
-      { ...hotelOptions[0], nights: 2 }, // 银沙滩2晚
-      { ...hotelOptions[1], nights: 1 }, // 涠洲岛1晚
-    ], // 珠海过夜1晚 + 珠海长隆1晚 + 银沙滩2晚 + 涠洲岛1晚 = 5晚
-    totalDays: 6
-  },
-  {
     id: 'plan1',
     name: '方案一: 北海往返',
-    flights: roundTripFlightOptions[1], // 索引+1
+    flights: roundTripFlightOptions[1],
     hotels: [hotelOptions[0], hotelOptions[1]], // 银沙滩2晚 + 涠洲岛2晚 = 4晚
     totalDays: 5
   },
   {
     id: 'plan2',
     name: '方案二: 西安-北海-桂林-西安 (晚班机)',
-    flights: roundTripFlightOptions[2], // 索引+1
+    flights: roundTripFlightOptions[2],
     train: trainOptions[0],
     hotels: [hotelOptions[0], hotelOptions[1], hotelOptions[2]], // 银沙滩2晚 + 涠洲岛2晚 + 桂林1晚 = 5晚
     totalDays: 6
@@ -305,7 +312,7 @@ export const travelPlans: TravelPlan[] = [
   {
     id: 'plan3',
     name: '方案三: 西安-北海-桂林-西安 (中午班机)',
-    flights: roundTripFlightOptions[3], // 索引+1
+    flights: roundTripFlightOptions[3],
     train: trainOptions[0],
     hotels: [hotelOptions[0], hotelOptions[1], hotelOptions[2]], // 银沙滩2晚 + 涠洲岛2晚 + 桂林1晚 = 5晚
     totalDays: 6
@@ -313,7 +320,7 @@ export const travelPlans: TravelPlan[] = [
   {
     id: 'plan4',
     name: '方案四: 西安-桂林-北海-西安',
-    flights: roundTripFlightOptions[4], // 索引+1
+    flights: roundTripFlightOptions[4],
     train: trainOptions[1],
     hotels: [hotelOptions[2], hotelOptions[0], hotelOptions[1]], // 桂林1晚 + 银沙滩2晚 + 涠洲岛2晚 = 5晚
     totalDays: 6
@@ -321,7 +328,7 @@ export const travelPlans: TravelPlan[] = [
   {
     id: 'plan5',
     name: '方案五: 西安-北海-珠海-西安 (无托运)',
-    flights: roundTripFlightOptions[5], // 索引+1
+    flights: roundTripFlightOptions[5],
     train: trainOptions[2],
     hotels: [
       { ...hotelOptions[0], nights: 2 }, // 银沙滩2晚
@@ -334,7 +341,7 @@ export const travelPlans: TravelPlan[] = [
   {
     id: 'plan6',
     name: '方案六: 西安-北海-珠海-西安 (含托运)',
-    flights: roundTripFlightOptions[6], // 索引+1
+    flights: roundTripFlightOptions[6],
     train: trainOptions[2],
     hotels: [
       { ...hotelOptions[0], nights: 2 }, // 银沙滩2晚
@@ -343,6 +350,31 @@ export const travelPlans: TravelPlan[] = [
       hotelOptions[4]  // 珠海长隆1晚
     ], // 银沙滩2晚 + 涠洲岛1晚 + 珠海过夜1晚 + 珠海长隆1晚 = 5晚
     totalDays: 6
+  },
+  {
+    id: 'plan7',
+    name: '方案七: 西安-珠海-北海-西安 (5.28-6.2)',
+    flights: roundTripFlightOptions[0],
+    train: trainOptions[3], // 珠海到北海
+    hotels: [
+      hotelOptions[3], // 珠海过夜1晚
+      hotelOptions[4], // 珠海长隆1晚
+      { ...hotelOptions[0], nights: 2 }, // 银沙滩2晚
+      { ...hotelOptions[1], nights: 1 }, // 涠洲岛1晚
+    ], // 珠海过夜1晚 + 珠海长隆1晚 + 银沙滩2晚 + 涠洲岛1晚 = 5晚
+    totalDays: 6
+  },
+  {
+    id: 'plan8',
+    name: '2025端午之旅: 西安-桂林-北海-西安',
+    flights: roundTripFlightOptions[7],
+    train: trainOptions[1],
+    hotels: [
+      hotelOptions[2], // 桂林1晚
+      { ...hotelOptions[0], nights: 2 }, // 银沙滩2晚
+      hotelOptions[1]  // 涠洲岛1晚
+    ], // 桂林1晚 + 银沙滩2晚 + 涠洲岛1晚 = 4晚
+    totalDays: 5
   }
 ];
 
@@ -373,6 +405,8 @@ export const calculateWorkDaysOff = (plan: TravelPlan): number => {
     return 2; // 5.30和6.3 (方案一)
   } else if (plan.id === 'plan5' || plan.id === 'plan6') {
     return 3; // 5.30, 6.3, 6.4 (珠海方案五、六)
+  } else if (plan.id === 'plan8') {
+    return 2; // 6.20, 6.24 (2025端午之旅)
   } else {
     return 3; // 5.30, 6.3, 6.4 (桂林方案二、三、四)
   }
