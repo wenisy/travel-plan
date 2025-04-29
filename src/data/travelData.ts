@@ -230,26 +230,6 @@ export const roundTripFlightOptions: RoundTripFlightOption[] = [
       hasCheckedBaggage: true
     },
     totalPrice: 1477 // 含托运行李的往返总价
-  },
-  {
-    id: 'rt8',
-    outbound: {
-      departure: '西安',
-      arrival: '桂林',
-      departureTime: '07:30',
-      arrivalTime: '10:00',
-      date: '2025-06-20',
-      hasCheckedBaggage: true
-    },
-    return: {
-      departure: '北海',
-      arrival: '西安',
-      departureTime: '16:00',
-      arrivalTime: '18:25',
-      date: '2025-06-24',
-      hasCheckedBaggage: true
-    },
-    totalPrice: 1800 // 往返总价
   }
 ];
 
@@ -363,18 +343,6 @@ export const travelPlans: TravelPlan[] = [
       { ...hotelOptions[1], nights: 1 }, // 涠洲岛1晚
     ], // 珠海过夜1晚 + 珠海长隆1晚 + 银沙滩2晚 + 涠洲岛1晚 = 5晚
     totalDays: 6
-  },
-  {
-    id: 'plan8',
-    name: '2025端午之旅: 西安-桂林-北海-西安',
-    flights: roundTripFlightOptions[7],
-    train: trainOptions[1],
-    hotels: [
-      hotelOptions[2], // 桂林1晚
-      { ...hotelOptions[0], nights: 2 }, // 银沙滩2晚
-      hotelOptions[1]  // 涠洲岛1晚
-    ], // 桂林1晚 + 银沙滩2晚 + 涠洲岛1晚 = 4晚
-    totalDays: 5
   }
 ];
 
@@ -403,10 +371,6 @@ export const calculateWorkDaysOff = (plan: TravelPlan): number => {
     return 3; // 5.28, 5.29, 5.30 (方案七) - 6.2是节假日不用请假
   } else if (plan.id === 'plan1') {
     return 2; // 5.30和6.3 (方案一)
-  } else if (plan.id === 'plan5' || plan.id === 'plan6') {
-    return 3; // 5.30, 6.3, 6.4 (珠海方案五、六)
-  } else if (plan.id === 'plan8') {
-    return 2; // 6.20, 6.24 (2025端午之旅)
   } else {
     return 3; // 5.30, 6.3, 6.4 (桂林方案二、三、四)
   }
