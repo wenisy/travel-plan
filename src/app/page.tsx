@@ -1,36 +1,33 @@
 'use client';
 
-import React, { useState } from 'react';
-import TravelPlanTable from '../components/TravelPlanTable';
-import TravelCalendar from '../components/TravelCalendar';
-import CostChart from '../components/CostChart';
-import TravelSummary from '../components/TravelSummary';
-import { travelPlans } from '../data/travelData';
+import React from 'react';
+import Link from 'next/link'; // 导入 Link 组件用于导航
+import { allTravelPlanSets } from '../data/travelData'; // 导入新的数据结构
 
 export default function Home() {
   return (
-    <main className="min-h-screen p-8"> {/* 调整外层 padding */}
-      <div className="max-w-7xl mx-auto"> {/* 稍微加宽内容区域 */}
-        <h1 className="text-3xl font-bold text-center my-8">旅行规划对比</h1>
+    <main className="min-h-screen p-8 bg-gray-50">
+      <div className="max-w-4xl mx-auto">
+        <h1 className="text-4xl font-bold text-center my-10 text-gray-800">旅行计划目录</h1>
 
-        <div className="mb-8">
-          {/* 行程方案对比表格现在接收所有 plans */}
-          <TravelPlanTable plans={travelPlans} />
-        </div>
-
-        {/* 移除日历组件 */}
-        {/* <TravelCalendar startDate={selectedPlan.flights.outbound.date} endDate={selectedPlan.flights.return.date} /> */}
-
-        {/* 成本图表现在接收所有 plans */}
-        <div className="mb-8">
-          <h2 className="text-2xl font-bold mb-4 text-center">成本对比</h2>
-          <CostChart plans={travelPlans} />
-        </div>
-
-        {/* 摘要信息现在接收所有 plans */}
-        <div>
-          <h2 className="text-2xl font-bold mb-4 text-center">方案总结</h2>
-          <TravelSummary plans={travelPlans} />
+        <div className="space-y-6">
+          {allTravelPlanSets.length > 0 ? (
+            allTravelPlanSets.map(planSet => (
+              <div key={planSet.id} className="bg-white p-6 rounded-lg shadow hover:shadow-md transition-shadow duration-200">
+                <h2 className="text-2xl font-semibold text-blue-600 mb-2">{planSet.name}</h2>
+                {planSet.description && (
+                  <p className="text-gray-600 mb-4">{planSet.description}</p>
+                )}
+                <Link href={`/plans/${planSet.id}`} legacyBehavior>
+                  <a className="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors duration-200">
+                    查看详情
+                  </a>
+                </Link>
+              </div>
+            ))
+          ) : (
+            <p className="text-center text-gray-500">暂无旅行计划集合。</p>
+          )}
         </div>
       </div>
     </main>
