@@ -24,7 +24,7 @@
 
 ```bash
 # 克隆仓库
-git clone https://github.com/yourusername/travel-plan.git
+git clone git@github.com:wenisy/travel-plan.git
 cd travel-plan
 
 # 使用nvm选择正确的Node.js版本
