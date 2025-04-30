@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景圆形 -->
+  <circle cx="16" cy="16" r="16" fill="#3B82F6"/>
+  
+  <!-- 飞机图标 -->
+  <path d="M26 12.5L18 16.5L26 20.5L24 24.5L16 20.5L8 24.5L6 20.5L14 16.5L6 12.5L8 8.5L16 12.5L24 8.5L26 12.5Z" fill="white"/>
+  
+  <!-- 地图标记 -->
+  <circle cx="16" cy="16" r="3" fill="#F87171"/>
+</svg>

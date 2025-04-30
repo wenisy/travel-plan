@@ -7,6 +7,10 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: '旅游规划',
   description: '旅游行程规划与费用对比',
+  icons: {
+    icon: '/favicon.svg',
+    apple: '/favicon.svg',
+  },
 }
 
 export default function RootLayout({
