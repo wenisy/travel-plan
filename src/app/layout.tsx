@@ -5,8 +5,8 @@ import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: '旅游规划',
-  description: '旅游行程规划与费用对比',
+  title: '旅行规划助手',
+  description: '旅行规划和足迹记录应用，支持多方案对比和中国制霸地图',
   icons: {
     icon: '/favicon.svg',
     apple: '/favicon.svg',

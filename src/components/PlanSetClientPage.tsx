@@ -23,6 +23,20 @@ export default function PlanSetClientPage({ planSet }: PlanSetClientPageProps) {
             </Link>
         </div>
 
+        {/* 导航菜单 */}
+        <div className="flex justify-center mb-8">
+          <div className="bg-white rounded-lg shadow-md p-4">
+            <nav className="flex space-x-6">
+              <Link href="/" className="text-blue-600 font-semibold border-b-2 border-blue-600 pb-1">
+                旅行计划
+              </Link>
+              <Link href="/map" className="text-gray-600 hover:text-blue-600 transition-colors pb-1">
+                中国制霸地图
+              </Link>
+            </nav>
+          </div>
+        </div>
+
         <h1 className="text-3xl font-bold text-center my-8">{planSet.name}</h1>
         {planSet.description && (
             <p className="text-center text-gray-600 mb-8">{planSet.description}</p>

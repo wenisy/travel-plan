@@ -16,6 +16,20 @@ export default function Home() {
     <main className="min-h-screen p-8 bg-gray-50">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl font-bold text-center my-10 text-gray-800">旅行计划目录</h1>
+
+        {/* 导航菜单 */}
+        <div className="flex justify-center mb-8">
+          <div className="bg-white rounded-lg shadow-md p-4">
+            <nav className="flex space-x-6">
+              <Link href="/" className="text-blue-600 font-semibold border-b-2 border-blue-600 pb-1">
+                旅行计划
+              </Link>
+              <Link href="/map" className="text-gray-600 hover:text-blue-600 transition-colors pb-1">
+                中国制霸地图
+              </Link>
+            </nav>
+          </div>
+        </div>
         
         <Timeline>
           {allTravelPlanSets.length > 0 ? (
