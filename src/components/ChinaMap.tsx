@@ -32,55 +32,43 @@ const levelConfig = {
   [VisitLevel.RESIDENCE]: { name: '居住', color: '#fecaca', textColor: '#991b1b' }
 };
 
-// 基于原版china-ex项目的精确省份坐标数据，避免重叠
+// 基于原版china-ex项目SVG的精确省份坐标数据（按比例缩放到合适尺寸）
 const provinces: Province[] = [
-  // 第一行：新疆、内蒙古、黑龙江
-  { id: 'xinjiang', name: '新疆', x: 20, y: 50, width: 90, height: 110 },
-  { id: 'inner_mongolia', name: '内蒙古', x: 120, y: 50, width: 150, height: 45 },
-  { id: 'heilongjiang', name: '黑龙江', x: 280, y: 50, width: 70, height: 45 },
-
-  // 第二行：西藏、青海、甘肃、宁夏、山西、吉林、辽宁
-  { id: 'tibet', name: '西藏', x: 20, y: 170, width: 90, height: 70 },
-  { id: 'qinghai', name: '青海', x: 120, y: 105, width: 60, height: 55 },
-  { id: 'gansu', name: '甘肃', x: 190, y: 105, width: 30, height: 55 },
-  { id: 'ningxia', name: '宁夏', x: 190, y: 170, width: 25, height: 25 },
-  { id: 'shanxi', name: '山西', x: 225, y: 130, width: 30, height: 45 },
-  { id: 'jilin', name: '吉林', x: 280, y: 105, width: 35, height: 35 },
-  { id: 'liaoning', name: '辽宁', x: 325, y: 105, width: 35, height: 35 },
-
-  // 第三行：四川、陕西、河北、北京、天津、山东
-  { id: 'sichuan', name: '四川', x: 120, y: 170, width: 60, height: 60 },
-  { id: 'shaanxi', name: '陕西', x: 225, y: 185, width: 30, height: 40 },
-  { id: 'hebei', name: '河北', x: 265, y: 150, width: 45, height: 40 },
-  { id: 'beijing', name: '北京', x: 265, y: 130, width: 20, height: 15 },
-  { id: 'tianjin', name: '天津', x: 290, y: 130, width: 20, height: 15 },
-  { id: 'shandong', name: '山东', x: 320, y: 150, width: 45, height: 35 },
-
-  // 第四行：重庆、河南、湖北、安徽、江苏、上海
-  { id: 'chongqing', name: '重庆', x: 190, y: 235, width: 25, height: 20 },
-  { id: 'henan', name: '河南', x: 265, y: 200, width: 45, height: 35 },
-  { id: 'hubei', name: '湖北', x: 265, y: 245, width: 45, height: 35 },
-  { id: 'anhui', name: '安徽', x: 320, y: 195, width: 30, height: 40 },
-  { id: 'jiangsu', name: '江苏', x: 360, y: 195, width: 30, height: 30 },
-  { id: 'shanghai', name: '上海', x: 395, y: 195, width: 15, height: 15 },
-
-  // 第五行：云南、贵州、湖南、江西、浙江
-  { id: 'yunnan', name: '云南', x: 120, y: 240, width: 60, height: 60 },
-  { id: 'guizhou', name: '贵州', x: 190, y: 265, width: 40, height: 30 },
-  { id: 'hunan', name: '湖南', x: 265, y: 290, width: 40, height: 35 },
-  { id: 'jiangxi', name: '江西', x: 315, y: 245, width: 30, height: 45 },
-  { id: 'zhejiang', name: '浙江', x: 355, y: 235, width: 30, height: 40 },
-
-  // 第六行：广西、广东、福建、台湾
-  { id: 'guangxi', name: '广西', x: 190, y: 305, width: 50, height: 35 },
-  { id: 'guangdong', name: '广东', x: 250, y: 335, width: 55, height: 35 },
-  { id: 'fujian', name: '福建', x: 355, y: 285, width: 30, height: 40 },
-  { id: 'taiwan', name: '台湾', x: 395, y: 285, width: 20, height: 50 },
-
-  // 最下层：海南、港澳
-  { id: 'hainan', name: '海南', x: 250, y: 380, width: 25, height: 18 },
-  { id: 'hongkong', name: '港', x: 280, y: 380, width: 12, height: 12 },
-  { id: 'macau', name: '澳', x: 295, y: 380, width: 12, height: 12 }
+  // 根据原版SVG路径转换的坐标，缩放比例约为0.35
+  { id: 'xinjiang', name: '新疆', x: 12, y: 30, width: 110, height: 133 },
+  { id: 'inner_mongolia', name: '内蒙古', x: 175, y: 12, width: 138, height: 76 },
+  { id: 'heilongjiang', name: '黑龙江', x: 313, y: 12, width: 72, height: 55 },
+  { id: 'jilin', name: '吉林', x: 313, y: 67, width: 72, height: 30 },
+  { id: 'liaoning', name: '辽宁', x: 301, y: 97, width: 54, height: 41 },
+  { id: 'beijing', name: '北京', x: 267, y: 118, width: 28, height: 18 },
+  { id: 'tianjin', name: '天津', x: 267, y: 136, width: 28, height: 15 },
+  { id: 'hebei', name: '河北', x: 254, y: 109, width: 41, height: 63 },
+  { id: 'shandong', name: '山东', x: 273, y: 156, width: 49, height: 32 },
+  { id: 'shanxi', name: '山西', x: 229, y: 146, width: 25, height: 38 },
+  { id: 'henan', name: '河南', x: 229, y: 172, width: 44, height: 41 },
+  { id: 'anhui', name: '安徽', x: 298, y: 188, width: 26, height: 48 },
+  { id: 'jiangsu', name: '江苏', x: 315, y: 188, width: 22, height: 30 },
+  { id: 'shanghai', name: '上海', x: 309, y: 211, width: 25, height: 16 },
+  { id: 'zhejiang', name: '浙江', x: 298, y: 219, width: 26, height: 37 },
+  { id: 'fujian', name: '福建', x: 288, y: 257, width: 26, height: 37 },
+  { id: 'taiwan', name: '台湾', x: 321, y: 276, width: 16, height: 30 },
+  { id: 'gansu', name: '甘肃', x: 123, y: 67, width: 82, height: 130 },
+  { id: 'qinghai', name: '青海', x: 80, y: 138, width: 75, height: 81 },
+  { id: 'tibet', name: '西藏', x: 12, y: 163, width: 124, height: 106 },
+  { id: 'ningxia', name: '宁夏', x: 175, y: 146, width: 30, height: 34 },
+  { id: 'shaanxi', name: '陕西', x: 205, y: 146, width: 24, height: 82 },
+  { id: 'sichuan', name: '四川', x: 136, y: 228, width: 62, height: 29 },
+  { id: 'chongqing', name: '重庆', x: 198, y: 228, width: 31, height: 20 },
+  { id: 'hubei', name: '湖北', x: 229, y: 213, width: 44, height: 28 },
+  { id: 'hunan', name: '湖南', x: 229, y: 241, width: 33, height: 35 },
+  { id: 'jiangxi', name: '江西', x: 262, y: 237, width: 36, height: 46 },
+  { id: 'yunnan', name: '云南', x: 136, y: 258, width: 52, height: 40 },
+  { id: 'guizhou', name: '贵州', x: 188, y: 248, width: 41, height: 28 },
+  { id: 'guangxi', name: '广西', x: 188, y: 276, width: 50, height: 28 },
+  { id: 'guangdong', name: '广东', x: 238, y: 276, width: 50, height: 28 },
+  { id: 'hainan', name: '海南', x: 215, y: 314, width: 27, height: 16 },
+  { id: 'hongkong', name: '港', x: 265, y: 300, width: 15, height: 12 },
+  { id: 'macau', name: '澳', x: 245, y: 300, width: 16, height: 12 }
 ];
 
 export default function ChinaMap() {
@@ -155,8 +143,8 @@ export default function ChinaMap() {
     const ctx = canvas.getContext('2d');
     const img = new Image();
 
-    canvas.width = 440;
-    canvas.height = 430;
+    canvas.width = 400;
+    canvas.height = 350;
 
     img.onload = () => {
       if (ctx) {
@@ -235,9 +223,9 @@ export default function ChinaMap() {
 
       {/* 地图 */}
       <div className="mb-6 flex justify-center">
-        <svg id="china-map-svg" width="440" height="430" className="border border-gray-200 rounded bg-pink-100">
+        <svg id="china-map-svg" width="400" height="350" className="border border-gray-200 rounded bg-pink-100">
           {/* 标题 */}
-          <text x="220" y="25" textAnchor="middle" fontSize="18" fontWeight="bold" fill="#1f2937">
+          <text x="200" y="25" textAnchor="middle" fontSize="16" fontWeight="bold" fill="#1f2937">
             中国制霸
           </text>
 
@@ -271,7 +259,7 @@ export default function ChinaMap() {
           ))}
 
           {/* 分数显示 */}
-          <text x="30" y="420" fontSize="14" fontWeight="bold" fill="#1f2937">
+          <text x="20" y="340" fontSize="12" fontWeight="bold" fill="#1f2937">
             分数: {Object.values(visitLevels).reduce((sum, level) => sum + level, 0)}
           </text>
         </svg>
